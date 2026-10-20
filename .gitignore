@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+data/
+covers/
+state.json
+*_config.json
+*.local.json
+*.log
+dist/
+*.zip

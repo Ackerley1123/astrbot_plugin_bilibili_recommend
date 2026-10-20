@@ -1,0 +1,7 @@
+name: astrbot_plugin_bilibili_recommend
+display_name: B站视频推荐
+desc: 独立的B站公开视频推荐，支持关键词、真实链接、封面、会话去重和可选陪伴主动分享。
+version: v1.0.0
+author: Ackerley1123
+repo: https://github.com/Ackerley1123/astrbot_plugin_bilibili_recommend
+astrbot_version: ">=4.29.1,<5"

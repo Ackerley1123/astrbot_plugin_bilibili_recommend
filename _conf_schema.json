@@ -1,0 +1,18 @@
+{
+  "enabled": {"description": "启用B站视频推荐", "type": "bool", "default": true},
+  "tavily_api_keys": {"description": "独立Tavily API Key", "hint": "可填写多个Key。只向Tavily官方接口发送，不会回显或记录；留空时可复用AstrBot配置。", "type": "list", "default": [], "secret": true},
+  "reuse_astrbot_tavily": {"description": "复用AstrBot的Tavily Key", "hint": "插件独立Key优先；没有独立Key时读取当前会话配置中的Tavily Key。不依赖AstrBot的内部搜索函数，也不要求模型会调用工具。", "type": "bool", "default": true},
+  "topics": {"description": "默认轮换兴趣关键词", "type": "list", "default": ["JPOP YOASOBI 现场", "动画 新番 PV", "二次元 动画 音乐"]},
+  "allow_groups": {"description": "允许群聊指令", "hint": "默认仅私聊，打开后仍受用户和会话白名单限制。", "type": "bool", "default": false},
+  "allowed_user_ids": {"description": "允许的发送者ID", "hint": "留空不限制发送者。跨平台部署或使用主动桥接时建议用会话白名单；此列表非空时主动桥接会关闭，以免将规范化身份误当平台用户ID。", "type": "list", "default": []},
+  "allowed_sessions": {"description": "允许的会话UMO", "hint": "留空不限制会话；非空时仅精确匹配列表中的会话。群聊仍需单独打开。", "type": "list", "default": []},
+  "cooldown_seconds": {"description": "同一会话手动请求间隔（秒）", "type": "int", "default": 15, "slider": {"min": 5, "max": 3600, "step": 5}},
+  "timeout_seconds": {"description": "一次推荐总超时（秒）", "type": "int", "default": 60, "slider": {"min": 10, "max": 120, "step": 5}},
+  "max_results": {"description": "每次搜索候选数", "type": "int", "default": 7, "slider": {"min": 1, "max": 10, "step": 1}},
+  "send_cover": {"description": "附带视频封面", "hint": "只从B站官方封面域名获取，失败时保留文本链接。", "type": "bool", "default": true},
+  "cover_max_mb": {"description": "单张封面大小上限（MiB）", "type": "int", "default": 6, "slider": {"min": 1, "max": 10, "step": 1}},
+  "cache_limit": {"description": "最多缓存封面数量", "type": "int", "default": 50, "slider": {"min": 5, "max": 200, "step": 5}},
+  "dedup_limit": {"description": "每个会话记住最近多少个视频", "type": "int", "default": 100, "slider": {"min": 10, "max": 500, "step": 10}},
+  "enable_companion_bridge": {"description": "启用可选Private Companion桥接", "hint": "默认关闭；需要安装支持公开主动能力API的Private Companion，并填写主动目标。插件自己没有定时发送任务。", "type": "bool", "default": false},
+  "proactive_targets": {"description": "允许主动分享的私聊UMO", "hint": "精确填写已授权的私聊会话UMO。留空不主动联系；仍需在陪伴插件中授权该用户、设置频率与免打扰。", "type": "list", "default": []}
+}
